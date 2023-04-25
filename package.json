@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx resume serve --theme ."
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "resume-cli": "^3.0.8"
+    "resume-cli": "^3.0.8",
+    "gravatar": "^1.0.6",
+    "lodash": "^4.17.20",
+    "mustache": "^2.2.1"
   }
 }
