@@ -131,3 +131,4 @@ dist
 
 # resume-cli
 public/
+*.pdf
