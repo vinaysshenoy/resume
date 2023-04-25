@@ -78,7 +78,7 @@
                     <div class="description">
                       {{{summary}}}
                       {{#boolHighlights}}
-                      <div class="highlights">Highlights</div>
+                      <div class="highlights">Projects:</div>
                       <ul class="list-group">
                         {{#highlights}}
                         <li class="list-group-item">{{{.}}}</li>

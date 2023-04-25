@@ -49,7 +49,7 @@
                 "Worked on several infrastructure related projects related to automated testing and CI/CD in order to improve engineering workflows."
             ],
             "summary": "Served as team lead of a team of 4 developers (including me) working on the Simple.org mobile application. While here, I was responsible for facilitating the rest of the team on executing features on the app, while also working on frameworks and infrastructure to reduce engineering friction and improve delivery. I am particularly proud of the fact that the product we worked on went on win the 'Best In Show' award at the IxDA Design Awards 2020.",
-            "url": "https://www.linkedin.com/company/obvious-in/",
+            "url": "https://obvious.in",
             "location": "Bengaluru, Karnataka, India"
         },
         {
@@ -58,7 +58,6 @@
             "startDate": "2018-07-10",
             "endDate": "2019-11-30",
             "highlights": [
-                "One of the core team members responsible for developing the Simple.org Android application.",
                 "Planned and executed multiple core features of the Simple app.",
                 "Writing and maintaining automated unit and integration tests as part of the CI/CD workflow.",
                 "Integrated analytics tools and created dashboards for measuring and sharing impact of changes with the product team.",
@@ -67,6 +66,7 @@
                 "Integrated tooling to introduce a standardized workflow for bringing in translated copy into the app for localization."
             ],
             "summary": "Worked as a senior engineer on the Simple.org mobile application. While here, I put my expertise in building Android applications to good use, while expanding my skillset on infrastructure related tools like automated testing and CI/CD. In addition, I grew to appreciate the value of a user experience driven development process.",
+            "url": "https://obvious.in",
             "location": "Bengaluru, Karnataka, India"
         },
         {
@@ -82,8 +82,8 @@
                 "Built a server application to support uploading and managing 3D assets for use in the online home interior design application.",
                 "Developed custom 3D model formats to optimize 3D assets for online streaming."
             ],
-            "summary": "",
-            "url": "https://www.linkedin.com/company/homelane/",
+            "summary": "Senior engineer on the SpaceCraft interior design platform. While I was here, I designed and deployed end-to-end software applications including server, frontend, and mobile applications involving 3D technologies.",
+            "url": "https://homelane.com",
             "location": "Bengaluru, Karnataka, India"
         },
         {
@@ -92,11 +92,10 @@
             "startDate": "2015-03-31",
             "endDate": "2015-09-30",
             "highlights": [
-                "Was one of the early employees for a startup that was aiming to improve the home interior shopping experience by building visualization solutions using modern technologies like WebGL.",
-                "Built an internal tool to streamline the upload process for 3D assets to the asset servers, which drastically reduced the time required and the chance of human errors when uploading assets.",
+                "Built internal tools to streamline the upload process for 3D assets to the asset servers, which drastically reduced the time required and the chance of human errors when uploading assets.",
                 "Prototyping a virtual-reality experience for visualizing home interiors and deployed it in multiple showrooms across Bengaluru."
             ],
-            "summary": "",
+            "summary": "Joined this startup as an early-stage employee with a desire to learn 3D technology. While here, I worked on multiple tools to enable artists to digitize furniture and home interior products quickly while also building consumer facing applications to visualize home interior design. Saw the company through an acquisition by HomeLane.com, one of India's largest home interior design companies.",
             "url": "https://www.doowup.co/",
             "location": "Bengaluru Area, India"
         },
@@ -112,8 +111,8 @@
                 "Worked closely with the QA team to resolve issues found with the application before releases.",
                 "Being part of the on-call rotation for monitoring server issues and reporting faults to the relevant teams during outages."
             ],
-            "summary": "",
-            "url": "https://www.linkedin.com/company/flipkart/",
+            "summary": "Was one of the engineers on the Flipkart eBooks Android application. The product allowed users to buy eBooks and read them on their phones and tables. I worked on several parts of the application, mostly on the infrastructure side, which involved refactoring and unifying frameworks to standardize ways of accomplishing tasks in the app.",
+            "url": "https://www.flipkart.com",
             "location": "Bengaluru, Karnataka, India"
         },
         {
@@ -127,7 +126,7 @@
                 "Worked closely with the server engineering team to design and integrate API contracts for the mobile applications.",
                 "Built internal libraries to share across multiple projects to speed up development on new projects."
             ],
-            "summary": "",
+            "summary": "Software engineer responsible for developing mobile applications for multiple clients.",
             "url": "https://www.linkedin.com/company/sourcebits/",
             "location": "Bengaluru, Karnataka, India"
         }
@@ -151,63 +150,43 @@
         {
             "name": "Software Architecture",
             "level": "",
-            "keywords": []
+            "keywords": ["Software Design", "Data Modelling"]
         },
         {
             "name": "Server application development",
             "level": "",
-            "keywords": []
+            "keywords": ["Dropwizard/Java", "Node/Typescript"]
         },
         {
             "name": "Android mobile application development",
             "level": "",
-            "keywords": []
+            "keywords": ["Native Android development"]
         },
         {
-            "name": "Software Design",
+            "name": "Programming Languages",
             "level": "",
-            "keywords": []
+            "keywords": ["Java", "Kotlin", "JavaScript", "Typescript", "Python"]
         },
         {
-            "name": "Kotlin/JVM",
+            "name": "Databases",
             "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Node/Typescript",
-            "level": "",
-            "keywords": []
-        },
-        {
-            "name": "PostgreSQL",
-            "level": "",
-            "keywords": []
+            "keywords": ["PostgreSQL", "SQLite"]
         },
         {
             "name": "devops",
             "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Automated Testing",
-            "level": "",
-            "keywords": []
+            "keywords": ["AWS", "GitHub Actions", "Shell scripting"]
         },
         {
             "name": "Developer Experience",
             "level": "",
-            "keywords": []
-        },
-        {
-            "name": "Continuous Integration and Continuous Delivery (CI/CD)",
-            "level": "",
-            "keywords": []
+            "keywords": ["CI/CD", "Automated Testing", "Refactoring", "Legacy Code Maintenance"]
         }
     ],
     "languages": [
         {
             "language": "English",
-            "fluency": "Native Speaker"
+            "fluency": "Native"
         }
     ],
     "interests": [],
