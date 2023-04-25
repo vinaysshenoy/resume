@@ -5,15 +5,18 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx resume serve --theme .",
-    "export": "npx resume export --format pdf --theme flat resume.pdf"
+    "start": "npx resume serve --theme elegant",
+    "export": "npx resume export --format pdf --theme elegant resume.pdf"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "gravatar": "^1.0.6",
+    "jsonresume-theme-actual": "^0.2.1",
     "jsonresume-theme-elegant": "^1.16.1",
     "jsonresume-theme-flat": "^0.3.7",
+    "jsonresume-theme-onepage": "^0.0.3",
+    "jsonresume-theme-paper": "^0.5.0",
     "lodash": "^4.17.20",
     "mustache": "^2.2.1",
     "resume-cli": "^3.0.8"
