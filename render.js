@@ -76,38 +76,11 @@ function renderEducation(education) {
   `;
 }
 
-function setUpPdfButton(data) {
+function setUpPdfButton() {
   const button = document.getElementById("pdf-button");
-  const defaultLabel = button.textContent;
-
-  button.addEventListener("click", () => {
-    button.disabled = true;
-    button.textContent = "Generating…";
-
-    // html2canvas captures relative to the current scroll position, so if the
-    // page is scrolled down when generating, the content gets pushed down by
-    // that offset (blank leading pages). Pin the capture origin to the top.
-    window.scrollTo(0, 0);
-
-    html2pdf()
-      .set({
-        margin: 0.5,
-        filename: `${data.name} - Resume.pdf`,
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
-        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-        pagebreak: {
-          mode: ["css", "legacy"],
-          avoid: ["li", ".intro", ".stack", ".job-header"],
-        },
-      })
-      .from(document.getElementById("app"))
-      .save()
-      .finally(() => {
-        button.disabled = false;
-        button.textContent = defaultLabel;
-      });
-  });
+  // Print styles (@media print) hide the button and lay the page out for PDF;
+  // the user saves as PDF from the browser's print dialog.
+  button.addEventListener("click", () => window.print());
 }
 
 function render(data) {
@@ -136,7 +109,7 @@ function render(data) {
     ${renderEducation(data.education)}
   `;
 
-  setUpPdfButton(data);
+  setUpPdfButton();
 }
 
 fetch("resume.json")

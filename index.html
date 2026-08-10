@@ -217,8 +217,6 @@
   @media print {
     body { padding: 0.5in; }
     a { color: inherit; text-decoration: none; }
-    section { break-inside: avoid; }
-    .job { break-inside: avoid; }
     .pdf-button { display: none; }
   }
 
@@ -230,7 +228,6 @@
 <body>
 <button class="pdf-button" id="pdf-button">Download PDF</button>
 <div class="resume" id="app"></div>
-<script src="vendor/html2pdf.bundle.min.js"></script>
 <script src="render.js"></script>
 </body>
 </html>
