@@ -8,6 +8,23 @@
   "summary": "Generalist software engineer with a keen interest in data modeling, system design, and developer experience. I have a broad range of experience over multiple platforms (consumer facing applications, backend apps, internal dev tools). My current skillset leans heavily towards backend and automation work, and absolutely love the craft of engineering, developer experience, and improving engineering feedback loops.",
   "sections": [
     {
+      "title": "Personal Projects",
+      "jobs": [
+        {
+          "company": "Harness Engineering: Flywheel Coding Loop",
+          "body": [
+            { "type": "paragraph", "text": "TODO: intro paragraph" },
+            { "type": "list", "items": [
+              "TODO: bullet point"
+            ] }
+          ],
+          "stack": [
+            { "label": "Platforms and Technologies used", "value": "TODO" }
+          ]
+        }
+      ]
+    },
+    {
       "title": "Recent Experience (2015 onwards)",
       "jobs": [
         {

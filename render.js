@@ -32,14 +32,16 @@ function renderStack(stack) {
 }
 
 function renderJob(job) {
+  const meta = [job.dates, job.location].filter(Boolean).map(escapeHtml).join(" · ");
+
   return `
     <div class="job">
       <div class="job-header">
         <div class="job-title-block">
           <span class="company">${escapeHtml(job.company)}</span>
-          <span class="role">${escapeHtml(job.role)}</span>
+          ${job.role ? `<span class="role">${escapeHtml(job.role)}</span>` : ""}
         </div>
-        <span class="meta">${escapeHtml(job.dates)} · ${escapeHtml(job.location)}</span>
+        ${meta ? `<span class="meta">${meta}</span>` : ""}
       </div>
       ${renderBody(job.body)}
       ${renderStack(job.stack || [])}
