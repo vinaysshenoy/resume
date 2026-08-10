@@ -13,13 +13,19 @@
         {
           "company": "Harness Engineering: Flywheel Coding Loop",
           "body": [
-            { "type": "paragraph", "text": "TODO: intro paragraph" },
+            { "type": "paragraph", "text": "Initially started as a learning exercise to teach myself harness engineering, this is a framework designed to use short lived agents with specific roles to build and verify software based on a spec. It is a golang based framework that first generates a high level spec for the scope of work the user wants to build, breaks it down into smaller deliverables, and drives a state machine for building and verifying the spec as it goes." },
             { "type": "list", "items": [
-              "TODO: bullet point"
+              "Designed a high level Plan -> Execute -> Verify state machine that is driven by a loop that invokes coding agents CLIs with specific tailored prompts.",
+              "Durability built in as the loop can be shut down and resumed later and it re-derives state from the in-progress worktrees and work ledger artifacts.",
+              "Integrating ephemeral mutation testing phases to verify the correctness of the generated tests to enforce the LLMs to author actually valid tests.",
+              "Designed to allow for swapping coding agents and models for each phase and role, i.e, the planning roles can use Anthropic/OpenAI frontier models and the execution and verification phases can use self hosted models on OpenRouter/bare metal if needed.",
+              "Observability built in, the framework captures token usage, turn metrics etc and persists it in the repository as part of the history so that it can be measured, sliced, and diced on different levels later.",
+              "Includes a lightweight web dashboard built in that has a live event feed and progress tracker for the coding loop",
+              "Started as a simple bash script but quickly grew beyond 4k LOC, prompting a rewrite in Golang. This was done using regression test scripts to capture system behaviour and incrementally replaced the core shell script with the Golang implementation in ~2 days."
             ] }
           ],
           "stack": [
-            { "label": "Platforms and Technologies used", "value": "TODO" }
+            { "label": "Platforms and Technologies used", "value": "Golang, Bash, HTML/CSS/JS, Coding agent CLIs, Skills" }
           ]
         }
       ]
@@ -56,7 +62,7 @@
           "stack": [
             {
               "label": "Platforms and Technologies used",
-              "value": "Kotlin, Jetpack Compose, Typescript, NodeJS"
+              "value": "Kotlin, Jetpack Compose, Typescript, NodeJS, SpecKit, Claude, Skills, MCP servers"
             },
             {
               "label": "Languages",
