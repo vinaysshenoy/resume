@@ -1,7 +1,7 @@
 {
   "name": "Vinay Shenoy",
-  "title": "Engineering Lead, Qweebi",
-  "location": "Hyderabad, India (Timezone: UTC+5:30)",
+  "title": "Staff Engineer (Agentic coding/Full Stack/DevEx)",
+  "location": "Hyderabad, India (Timezone: UTC+5:30) - Open to relocate",
   "phone": "+91-9538122356",
   "email": "work@vinaysshenoy.com",
   "qualification": "Bachelor of Computer Science & Engineering",
@@ -13,20 +13,29 @@
         {
           "company": "Harness Engineering: Flywheel Coding Loop",
           "body": [
-            { "type": "paragraph", "text": "Initially started as a learning exercise to teach myself harness engineering, this is a framework designed to use short lived agents with specific roles to build and verify software based on a spec. It is a golang based framework that first generates a high level spec for the scope of work the user wants to build, breaks it down into smaller deliverables, and drives a state machine for building and verifying the spec as it goes." },
-            { "type": "list", "items": [
-              "Designed a high level Plan -> Execute -> Verify state machine that is driven by a loop that invokes coding agents CLIs with specific tailored prompts.",
-              "Deterministic checks (lint, tests, etc) are run and enforced by the framework as guardrails so the coding agents cannot silently skip running these checks.",
-              "Durability built in as the loop can be shut down and resumed later and it re-derives state from the in-progress worktrees and work ledger artifacts.",
-              "Integrating ephemeral mutation testing phases to verify the correctness of the generated tests to enforce the LLMs to author actually valid tests.",
-              "Designed to allow for swapping coding agents and models for each phase and role, i.e, the planning roles can use Anthropic/OpenAI frontier models and the execution and verification phases can use self hosted models on OpenRouter/bare metal if needed.",
-              "Observability built in, the framework captures token usage, turn metrics etc and persists it in the repository as part of the history so that it can be measured, sliced, and diced on different levels later.",
-              "Includes a lightweight web dashboard built in that has a live event feed and progress tracker for the coding loop",
-              "Started as a simple bash script but quickly grew beyond 4k LOC, prompting a rewrite in Golang. This was done using regression test scripts to capture system behaviour and incrementally replaced the core shell script with the Golang implementation in ~2 days."
-            ] }
+            {
+              "type": "paragraph",
+              "text": "Initially started as a learning exercise to teach myself harness engineering, this is a framework designed to use short lived agents with specific roles to build and verify software based on a spec. It is a golang based framework that first generates a high level spec for the scope of work the user wants to build, breaks it down into smaller deliverables, and drives a state machine for building and verifying the spec as it goes."
+            },
+            {
+              "type": "list",
+              "items": [
+                "Designed a high level Plan -> Execute -> Verify state machine that is driven by a loop that invokes coding agents CLIs with specific tailored prompts.",
+                "Deterministic checks (lint, tests, etc) are run and enforced by the framework as guardrails so the coding agents cannot silently skip running these checks.",
+                "Durability built in as the loop can be shut down and resumed later and it re-derives state from the in-progress worktrees and work ledger artifacts.",
+                "Integrating ephemeral mutation testing phases to verify the correctness of the generated tests to enforce the LLMs to author actually valid tests.",
+                "Designed to allow for swapping coding agents and models for each phase and role, i.e, the planning roles can use Anthropic/OpenAI frontier models and the execution and verification phases can use self hosted models on OpenRouter/bare metal if needed.",
+                "Observability built in, the framework captures token usage, turn metrics etc and persists it in the repository as part of the history so that it can be measured, sliced, and diced on different levels later.",
+                "Includes a lightweight web dashboard built in that has a live event feed and progress tracker for the coding loop",
+                "Started as a simple bash script but quickly grew beyond 4k LOC, prompting a rewrite in Golang. This was done using regression test scripts to capture system behaviour and incrementally replaced the core shell script with the Golang implementation in ~2 days."
+              ]
+            }
           ],
           "stack": [
-            { "label": "Platforms and Technologies used", "value": "Golang, Bash, HTML/CSS/JS, Coding agent CLIs, Skills" }
+            {
+              "label": "Platforms and Technologies used",
+              "value": "Golang, Bash, HTML/CSS/JS, Coding agent CLIs, Skills"
+            }
           ]
         }
       ]
@@ -77,19 +86,34 @@
           "dates": "January 2022 – October 2025",
           "location": "Singapore",
           "body": [
-            { "type": "paragraph", "text": "Currently serving as Engineering Lead for the company building a virtual STEM makerspace for schools. As part of my role here, I built the backend application as well as building tools and pipelines to enable rapid prototyping and releases for the customer product. Here is a high-level glance at the most important things I have accomplished here:" },
-            { "type": "list", "items": [
-              "Built a pipeline to continuously build and deploy a Unity3D WebGL application on pull requests and merges to the repository. This supports ephemeral preview builds on Cloudflare Pages for developers to test out and showcase in-progress work without needing to spend time on building and running locally. This pipeline also removed the need for developers to manually create and package builds for the production releases and let us deliver customer value with as little time spent in grunt work as possible. This resulted in an overall increase of shipping velocity by 5X.",
-              "Set up an automated pipeline to build and deliver 3D assets on demand via AWS S3 + Cloudfront. This allowed building of a lightweight WebGL frontend that could load in 20s instead of 2 minutes, and fetched 3d assets only when needed.",
-              "Built an automated database migration and schema documentation generation workflow using SchemaSpy. This allowed us to keep DB schema documentation and migration code in sync automatically without needing to manually update docs.",
-              "Built the backend application for the product in NodeJS/Typescript/PostgreSQL. Handled the design, development, and deployment of the backend application end to end as a single engineer. Apart from building the APIs themselves, this involved setting up Continuous Integration and deployment pipelines, setting up docker builds, working with AWS, etc.",
-              "Set up a Backend <> Hubspot CRM sync workflow using Quartz scheduler to enable faster business development. This removed the need for sales team to generate excel reports manually and have a single consolidated dashboard for customer relations."
-            ] },
-            { "type": "paragraph", "text": "Apart from actual engineering work, a lot of my responsibilities here also included engineering leadership work. This included working directly with the founders of the company to do product scoping work, decide on tradeoffs to achieve business outcomes, set up hiring pipelines and processes, etc." }
+            {
+              "type": "paragraph",
+              "text": "Currently serving as Engineering Lead for the company building a virtual STEM makerspace for schools. As part of my role here, I built the backend application as well as building tools and pipelines to enable rapid prototyping and releases for the customer product. Here is a high-level glance at the most important things I have accomplished here:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Built a pipeline to continuously build and deploy a Unity3D WebGL application on pull requests and merges to the repository. This supports ephemeral preview builds on Cloudflare Pages for developers to test out and showcase in-progress work without needing to spend time on building and running locally. This pipeline also removed the need for developers to manually create and package builds for the production releases and let us deliver customer value with as little time spent in grunt work as possible. This resulted in an overall increase of shipping velocity by 5X.",
+                "Set up an automated pipeline to build and deliver 3D assets on demand via AWS S3 + Cloudfront. This allowed building of a lightweight WebGL frontend that could load in 20s instead of 2 minutes, and fetched 3d assets only when needed.",
+                "Built an automated database migration and schema documentation generation workflow using SchemaSpy. This allowed us to keep DB schema documentation and migration code in sync automatically without needing to manually update docs.",
+                "Built the backend application for the product in NodeJS/Typescript/PostgreSQL. Handled the design, development, and deployment of the backend application end to end as a single engineer. Apart from building the APIs themselves, this involved setting up Continuous Integration and deployment pipelines, setting up docker builds, working with AWS, etc.",
+                "Set up a Backend <> Hubspot CRM sync workflow using Quartz scheduler to enable faster business development. This removed the need for sales team to generate excel reports manually and have a single consolidated dashboard for customer relations."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Apart from actual engineering work, a lot of my responsibilities here also included engineering leadership work. This included working directly with the founders of the company to do product scoping work, decide on tradeoffs to achieve business outcomes, set up hiring pipelines and processes, etc."
+            }
           ],
           "stack": [
-            { "label": "Platforms and Technologies used", "value": "Unity3D, NodeJS, PostgreSQL, AWS, Docker, Cloudflare, Testcontainers, GitHub Actions, Shell scripting" },
-            { "label": "Languages", "value": "C#, Typescript, Kotlin/JVM" }
+            {
+              "label": "Platforms and Technologies used",
+              "value": "Unity3D, NodeJS, PostgreSQL, AWS, Docker, Cloudflare, Testcontainers, GitHub Actions, Shell scripting"
+            },
+            {
+              "label": "Languages",
+              "value": "C#, Typescript, Kotlin/JVM"
+            }
           ]
         },
         {
@@ -98,17 +122,29 @@
           "dates": "July 2018 – January 2022",
           "location": "Bengaluru, India",
           "body": [
-            { "type": "paragraph", "text": "Lead a small team of mobile engineers of various experience levels building a <a href=\"https://github.com/simpledotorg/simple-android\">mobile client</a> for <a href=\"https://www.simple.org/\">Simple.org</a>, an open platform for enabling public health officials to better monitor and control non communicable diseases like hypertension and diabetes. While I started out as a senior engineer on the team building features for the app, I gradually grew to a tech lead role and focused more on enabling the rest of the team to deliver better value. The things I am most proud of accomplishing in this role are:" },
-            { "type": "list", "items": [
-              "Built a Gradle build plugin to automatically inject observability into generated code for the mobile app database layer built on <a href=\"https://developer.android.com/training/data-storage/room/\">Room</a>. This allowed us to gather SQLite query performance data across thousands of mobile devices used by healthcare providers in the field and report them to Datadog, thereby giving us insight for better optimization.",
-              "<a href=\"https://github.com/simpledotorg/simple-android/blob/master/doc/mobius/migrating-to-mobius.md\">Formalized a process</a> to migrate application screens written in an RxJava based ad-hoc architecture to one based on <a href=\"https://github.com/spotify/mobius\">Mobius</a>. As part of this initiative, I also wrote a tool to process the codebase and estimate a \"complexity\" score for each screen for migration, which allowed us to better fit the migration process into our planning schedule based on effort involved. This enabled the team to smoothly migrate the application over to the new architecture with minimal impact to feature delivery over six months.",
-              "Set up the integration test suite for the mobile app to spin up ephemeral instances of the backend application on Heroku for test runs. This drastically reduced flakiness of the test suite since each test run would receive an isolated instance of the server application while also reducing the amount of work needed on behalf of the backend engineers to clean up data on the development servers generated during the mobile application test runs.",
-              "Integrated an application localization platform called Transifex into the build, allowing localizers to translate text used in the app and integrate it into the codebase without needing developer effort."
-            ] }
+            {
+              "type": "paragraph",
+              "text": "Lead a small team of mobile engineers of various experience levels building a <a href=\"https://github.com/simpledotorg/simple-android\">mobile client</a> for <a href=\"https://www.simple.org/\">Simple.org</a>, an open platform for enabling public health officials to better monitor and control non communicable diseases like hypertension and diabetes. While I started out as a senior engineer on the team building features for the app, I gradually grew to a tech lead role and focused more on enabling the rest of the team to deliver better value. The things I am most proud of accomplishing in this role are:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Built a Gradle build plugin to automatically inject observability into generated code for the mobile app database layer built on <a href=\"https://developer.android.com/training/data-storage/room/\">Room</a>. This allowed us to gather SQLite query performance data across thousands of mobile devices used by healthcare providers in the field and report them to Datadog, thereby giving us insight for better optimization.",
+                "<a href=\"https://github.com/simpledotorg/simple-android/blob/master/doc/mobius/migrating-to-mobius.md\">Formalized a process</a> to migrate application screens written in an RxJava based ad-hoc architecture to one based on <a href=\"https://github.com/spotify/mobius\">Mobius</a>. As part of this initiative, I also wrote a tool to process the codebase and estimate a \"complexity\" score for each screen for migration, which allowed us to better fit the migration process into our planning schedule based on effort involved. This enabled the team to smoothly migrate the application over to the new architecture with minimal impact to feature delivery over six months.",
+                "Set up the integration test suite for the mobile app to spin up ephemeral instances of the backend application on Heroku for test runs. This drastically reduced flakiness of the test suite since each test run would receive an isolated instance of the server application while also reducing the amount of work needed on behalf of the backend engineers to clean up data on the development servers generated during the mobile application test runs.",
+                "Integrated an application localization platform called Transifex into the build, allowing localizers to translate text used in the app and integrate it into the codebase without needing developer effort."
+              ]
+            }
           ],
           "stack": [
-            { "label": "Platforms and Technologies used", "value": "Android, SQLite, GitHub Actions, Shell scripting" },
-            { "label": "Languages", "value": "Kotlin/Android, Python" }
+            {
+              "label": "Platforms and Technologies used",
+              "value": "Android, SQLite, GitHub Actions, Shell scripting"
+            },
+            {
+              "label": "Languages",
+              "value": "Kotlin/Android, Python"
+            }
           ]
         },
         {
@@ -117,16 +153,28 @@
           "dates": "September 2015 – July 2018",
           "location": "Bengaluru, India",
           "body": [
-            { "type": "paragraph", "text": "Joined the company as part of an acquisition as a mobile engineer maintaining an Android VR application used for visualizing home interiors in design showrooms. Over the course of this role, I grew to a more generalist engineer, solving a variety of problems that helped the business scale. Here is a high-level list of accomplishments over the course of this employment:" },
-            { "type": "list", "items": [
-              "Build an Android 2D room planning application used by home interior designers to create and design arbitrary floor plans which would control a webgl rendered 3D interior scene in real-time on customer laptops via WebSockets. This was integrated with the company's pricing and inventory catalog systems, and was a game-changer for the company since it allowed them to iterate on high-fidelity designs with customers in real-time with pricing, allowing for drastically shorter sales cycles (~10 days instead of 4-6 weeks).",
-              "Built a 3D asset management backend for the 3D art team to use to manage the aforementioned application, including validations and checks to reduce the amount of rework that would normally be needed in the case of manual asset uploads.",
-              "Built a custom 3D asset delivery format for webgl using Google's <a href=\"https://flatbuffers.dev/\">Flatbuffers library</a>, optimized for our needs. This significantly reduced the time needed to transfer and load assets into the application (by around 2-3X)."
-            ] }
+            {
+              "type": "paragraph",
+              "text": "Joined the company as part of an acquisition as a mobile engineer maintaining an Android VR application used for visualizing home interiors in design showrooms. Over the course of this role, I grew to a more generalist engineer, solving a variety of problems that helped the business scale. Here is a high-level list of accomplishments over the course of this employment:"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Build an Android 2D room planning application used by home interior designers to create and design arbitrary floor plans which would control a webgl rendered 3D interior scene in real-time on customer laptops via WebSockets. This was integrated with the company's pricing and inventory catalog systems, and was a game-changer for the company since it allowed them to iterate on high-fidelity designs with customers in real-time with pricing, allowing for drastically shorter sales cycles (~10 days instead of 4-6 weeks).",
+                "Built a 3D asset management backend for the 3D art team to use to manage the aforementioned application, including validations and checks to reduce the amount of rework that would normally be needed in the case of manual asset uploads.",
+                "Built a custom 3D asset delivery format for webgl using Google's <a href=\"https://flatbuffers.dev/\">Flatbuffers library</a>, optimized for our needs. This significantly reduced the time needed to transfer and load assets into the application (by around 2-3X)."
+              ]
+            }
           ],
           "stack": [
-            { "label": "Platforms and Technologies used", "value": "WebSockets, Android, three.js, Dropwizard, ElectronJS" },
-            { "label": "Languages", "value": "Kotlin/JVM, JavaScript" }
+            {
+              "label": "Platforms and Technologies used",
+              "value": "WebSockets, Android, three.js, Dropwizard, ElectronJS"
+            },
+            {
+              "label": "Languages",
+              "value": "Kotlin/JVM, JavaScript"
+            }
           ]
         }
       ]
@@ -140,7 +188,10 @@
           "dates": "March 2015 – August 2015",
           "location": "Bengaluru, India",
           "body": [
-            { "type": "paragraph", "text": "Joined an early-stage home interior visualization startup as a mobile engineer building an Android version of the webgl based visualization framework. Worked here until it was acquired by HomeLane (see recent experience section) and joined them as part of the acquisition." }
+            {
+              "type": "paragraph",
+              "text": "Joined an early-stage home interior visualization startup as a mobile engineer building an Android version of the webgl based visualization framework. Worked here until it was acquired by HomeLane (see recent experience section) and joined them as part of the acquisition."
+            }
           ],
           "stack": []
         },
@@ -150,7 +201,10 @@
           "dates": "June 2014 – March 2015",
           "location": "Bengaluru, India",
           "body": [
-            { "type": "paragraph", "text": "Worked as a product engineer building features for the eBooks Android reader application." }
+            {
+              "type": "paragraph",
+              "text": "Worked as a product engineer building features for the eBooks Android reader application."
+            }
           ],
           "stack": []
         },
@@ -160,7 +214,10 @@
           "dates": "June 2012 – February 2014",
           "location": "Bengaluru, India",
           "body": [
-            { "type": "paragraph", "text": "Worked as a product engineer building Android mobile applications for various clients." }
+            {
+              "type": "paragraph",
+              "text": "Worked as a product engineer building Android mobile applications for various clients."
+            }
           ],
           "stack": []
         }
