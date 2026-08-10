@@ -1,0 +1,154 @@
+{
+  "name": "Vinay Shenoy",
+  "title": "Engineering Lead, Qweebi",
+  "location": "Hyderabad, India (Timezone: UTC+5:30)",
+  "phone": "+91-9538122356",
+  "email": "work@vinaysshenoy.com",
+  "qualification": "Bachelor of Computer Science & Engineering",
+  "summary": "Generalist software engineer with a keen interest in data modeling, system design, and developer experience. I have a broad range of experience over multiple platforms (consumer facing applications, backend apps, internal dev tools). My current skillset leans heavily towards backend and automation work, and absolutely love the craft of engineering, developer experience, and improving engineering feedback loops.",
+  "sections": [
+    {
+      "title": "Recent Experience (2015 onwards)",
+      "jobs": [
+        {
+          "company": "Equal AI (Equal Identity Pvt. Ltd)",
+          "role": "Staff Engineer",
+          "dates": "November 2025 – June 2026",
+          "location": "Hyderabad, India",
+          "body": [
+            {
+              "type": "paragraph",
+              "text": "Staff engineer for the Equal AI assistant android application"
+            },
+            {
+              "type": "list",
+              "items": [
+                "Increased shipping velocity from 1-2 times a day to over 20 times a day by setting up automated build and deploy pipelines to firebase app distribution and the play store.",
+                "Built a smart call and conversation timeline caching system which reduced the time to show content to the user to < 1s; this was more complex than it seemed because some items in the list would be static and others dynamic and might potentially have invalid cached state, so the system had to account for this.",
+                "Built an MCP server to embed into debug android app builds, this allowed agents to query app state like the Compose UI tree, ViewModel state, analytics events, HTTP request/response data on demand to get richer context for agenting coding sessions and reduce the number of conversation turns with the coding agent.",
+                "Refactored a 7K LOC+ core class into smaller components; this was a fully automated agentic refactoring done by first capturing a strong black box integration test suite using a harness that captured input/output, logs, analytics events, file I/O etc, and used that to set up a safety net to run automated refactorings. The end result was that the class was decomposed safely with no change in production behaviour autonomously by an agent in parallel with feature development and not needing engineering time to execute.",
+                "Owned and built the monetization POC for the app including backend APIs (Using Firebase Cloud Functions) with Razorpay integration; this allowed the product team to have a high fidelity monetization enabled build ready to play around with while the backend team was setting up the full production payments system. When the production payments system was ready, the only thing needed to do was to swap the payments API endpoints in the app itself.",
+                "Owned planning and execution of several smaller features e2e on the mobile app side using SpecDrivenDevelopment agentic frameworks like SpecKit."
+              ]
+            },
+            {
+              "type": "paragraph",
+              "text": "Apart from actual engineering work, a lot of my responsibilities here also included engineering leadership work. This included working directly with the company leadership to do product scoping work, decide on tradeoffs to achieve business outcomes, etc."
+            }
+          ],
+          "stack": [
+            {
+              "label": "Platforms and Technologies used",
+              "value": "Kotlin, Jetpack Compose, Typescript, NodeJS"
+            },
+            {
+              "label": "Languages",
+              "value": "C#, Typescript, Kotlin/JVM"
+            }
+          ]
+        },
+        {
+          "company": "Qweebi (Virtual Learning Machines Pte. Ltd.)",
+          "role": "Engineering Lead",
+          "dates": "January 2022 – October 2025",
+          "location": "Singapore",
+          "body": [
+            { "type": "paragraph", "text": "Currently serving as Engineering Lead for the company building a virtual STEM makerspace for schools. As part of my role here, I built the backend application as well as building tools and pipelines to enable rapid prototyping and releases for the customer product. Here is a high-level glance at the most important things I have accomplished here:" },
+            { "type": "list", "items": [
+              "Built a pipeline to continuously build and deploy a Unity3D WebGL application on pull requests and merges to the repository. This supports ephemeral preview builds on Cloudflare Pages for developers to test out and showcase in-progress work without needing to spend time on building and running locally. This pipeline also removed the need for developers to manually create and package builds for the production releases and let us deliver customer value with as little time spent in grunt work as possible. This resulted in an overall increase of shipping velocity by 5X.",
+              "Set up an automated pipeline to build and deliver 3D assets on demand via AWS S3 + Cloudfront. This allowed building of a lightweight WebGL frontend that could load in 20s instead of 2 minutes, and fetched 3d assets only when needed.",
+              "Built an automated database migration and schema documentation generation workflow using SchemaSpy. This allowed us to keep DB schema documentation and migration code in sync automatically without needing to manually update docs.",
+              "Built the backend application for the product in NodeJS/Typescript/PostgreSQL. Handled the design, development, and deployment of the backend application end to end as a single engineer. Apart from building the APIs themselves, this involved setting up Continuous Integration and deployment pipelines, setting up docker builds, working with AWS, etc.",
+              "Set up a Backend <> Hubspot CRM sync workflow using Quartz scheduler to enable faster business development. This removed the need for sales team to generate excel reports manually and have a single consolidated dashboard for customer relations."
+            ] },
+            { "type": "paragraph", "text": "Apart from actual engineering work, a lot of my responsibilities here also included engineering leadership work. This included working directly with the founders of the company to do product scoping work, decide on tradeoffs to achieve business outcomes, set up hiring pipelines and processes, etc." }
+          ],
+          "stack": [
+            { "label": "Platforms and Technologies used", "value": "Unity3D, NodeJS, PostgreSQL, AWS, Docker, Cloudflare, Testcontainers, GitHub Actions, Shell scripting" },
+            { "label": "Languages", "value": "C#, Typescript, Kotlin/JVM" }
+          ]
+        },
+        {
+          "company": "Obvious (Obvious Ventures Pvt. Ltd.)",
+          "role": "Lead Product Engineer",
+          "dates": "July 2018 – January 2022",
+          "location": "Bengaluru, India",
+          "body": [
+            { "type": "paragraph", "text": "Lead a small team of mobile engineers of various experience levels building a <a href=\"https://github.com/simpledotorg/simple-android\">mobile client</a> for <a href=\"https://www.simple.org/\">Simple.org</a>, an open platform for enabling public health officials to better monitor and control non communicable diseases like hypertension and diabetes. While I started out as a senior engineer on the team building features for the app, I gradually grew to a tech lead role and focused more on enabling the rest of the team to deliver better value. The things I am most proud of accomplishing in this role are:" },
+            { "type": "list", "items": [
+              "Built a Gradle build plugin to automatically inject observability into generated code for the mobile app database layer built on <a href=\"https://developer.android.com/training/data-storage/room/\">Room</a>. This allowed us to gather SQLite query performance data across thousands of mobile devices used by healthcare providers in the field and report them to Datadog, thereby giving us insight for better optimization.",
+              "<a href=\"https://github.com/simpledotorg/simple-android/blob/master/doc/mobius/migrating-to-mobius.md\">Formalized a process</a> to migrate application screens written in an RxJava based ad-hoc architecture to one based on <a href=\"https://github.com/spotify/mobius\">Mobius</a>. As part of this initiative, I also wrote a tool to process the codebase and estimate a \"complexity\" score for each screen for migration, which allowed us to better fit the migration process into our planning schedule based on effort involved. This enabled the team to smoothly migrate the application over to the new architecture with minimal impact to feature delivery over six months.",
+              "Set up the integration test suite for the mobile app to spin up ephemeral instances of the backend application on Heroku for test runs. This drastically reduced flakiness of the test suite since each test run would receive an isolated instance of the server application while also reducing the amount of work needed on behalf of the backend engineers to clean up data on the development servers generated during the mobile application test runs.",
+              "Integrated an application localization platform called Transifex into the build, allowing localizers to translate text used in the app and integrate it into the codebase without needing developer effort."
+            ] }
+          ],
+          "stack": [
+            { "label": "Platforms and Technologies used", "value": "Android, SQLite, GitHub Actions, Shell scripting" },
+            { "label": "Languages", "value": "Kotlin/Android, Python" }
+          ]
+        },
+        {
+          "company": "HomeLane.com (Homevista Decor & Furnishings Pvt. Ltd.)",
+          "role": "Senior Mobile Engineer",
+          "dates": "September 2015 – July 2018",
+          "location": "Bengaluru, India",
+          "body": [
+            { "type": "paragraph", "text": "Joined the company as part of an acquisition as a mobile engineer maintaining an Android VR application used for visualizing home interiors in design showrooms. Over the course of this role, I grew to a more generalist engineer, solving a variety of problems that helped the business scale. Here is a high-level list of accomplishments over the course of this employment:" },
+            { "type": "list", "items": [
+              "Build an Android 2D room planning application used by home interior designers to create and design arbitrary floor plans which would control a webgl rendered 3D interior scene in real-time on customer laptops via WebSockets. This was integrated with the company's pricing and inventory catalog systems, and was a game-changer for the company since it allowed them to iterate on high-fidelity designs with customers in real-time with pricing, allowing for drastically shorter sales cycles (~10 days instead of 4-6 weeks).",
+              "Built a 3D asset management backend for the 3D art team to use to manage the aforementioned application, including validations and checks to reduce the amount of rework that would normally be needed in the case of manual asset uploads.",
+              "Built a custom 3D asset delivery format for webgl using Google's <a href=\"https://flatbuffers.dev/\">Flatbuffers library</a>, optimized for our needs. This significantly reduced the time needed to transfer and load assets into the application (by around 2-3X)."
+            ] }
+          ],
+          "stack": [
+            { "label": "Platforms and Technologies used", "value": "WebSockets, Android, three.js, Dropwizard, ElectronJS" },
+            { "label": "Languages", "value": "Kotlin/JVM, JavaScript" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Previous Experience (2012 – 2015)",
+      "jobs": [
+        {
+          "company": "doowup (virtuaLABS Software Solutions Pvt. Ltd.)",
+          "role": "Software Engineer",
+          "dates": "March 2015 – August 2015",
+          "location": "Bengaluru, India",
+          "body": [
+            { "type": "paragraph", "text": "Joined an early-stage home interior visualization startup as a mobile engineer building an Android version of the webgl based visualization framework. Worked here until it was acquired by HomeLane (see recent experience section) and joined them as part of the acquisition." }
+          ],
+          "stack": []
+        },
+        {
+          "company": "Flipkart (Flipkart Internet Pvt. Ltd.)",
+          "role": "Software Development Engineer",
+          "dates": "June 2014 – March 2015",
+          "location": "Bengaluru, India",
+          "body": [
+            { "type": "paragraph", "text": "Worked as a product engineer building features for the eBooks Android reader application." }
+          ],
+          "stack": []
+        },
+        {
+          "company": "Sourcebits (Sourcebits Technologies Pvt. Ltd.)",
+          "role": "Software Engineer",
+          "dates": "June 2012 – February 2014",
+          "location": "Bengaluru, India",
+          "body": [
+            { "type": "paragraph", "text": "Worked as a product engineer building Android mobile applications for various clients." }
+          ],
+          "stack": []
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Manipal Institute Of Technology",
+      "degree": "Bachelor of Computer Science & Engineering",
+      "dates": "2008 – 2012",
+      "location": "Manipal, Karnataka, India"
+    }
+  ]
+}
