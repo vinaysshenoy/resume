@@ -97,7 +97,6 @@
 
   .job {
     margin-bottom: 1.9rem;
-    position: relative;
   }
 
   .job:last-child { margin-bottom: 0; }
@@ -109,26 +108,19 @@
   }
 
   .job-title-block {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem;
     font-size: 1.1rem;
   }
 
   .company {
+    display: block;
     font-weight: 700;
     color: var(--heading);
   }
 
   .role {
+    display: block;
     font-weight: 400;
     color: var(--text);
-  }
-
-  .role::before {
-    content: "/ ";
-    color: var(--text-faint);
   }
 
   .meta {
@@ -180,10 +172,8 @@
 
   .edu-item, .school-item {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 0.25rem 1rem;
+    flex-direction: column;
+    gap: 0.15rem;
   }
 
   .edu-item .company, .school-item .company {

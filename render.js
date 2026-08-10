@@ -32,8 +32,6 @@ function renderStack(stack) {
 }
 
 function renderJob(job) {
-  const meta = [job.dates, job.location].filter(Boolean).map(escapeHtml).join(" · ");
-
   return `
     <div class="job">
       <div class="job-header">
@@ -41,11 +39,27 @@ function renderJob(job) {
           <span class="company">${escapeHtml(job.company)}</span>
           ${job.role ? `<span class="role">${escapeHtml(job.role)}</span>` : ""}
         </div>
-        ${meta ? `<span class="meta">${meta}</span>` : ""}
+        ${job.dates ? `<span class="meta">${escapeHtml(job.dates)}</span>` : ""}
+        ${job.location ? `<span class="meta">${escapeHtml(job.location)}</span>` : ""}
       </div>
       ${renderBody(job.body)}
       ${renderStack(job.stack || [])}
     </div>
+  `;
+}
+
+function renderSkills(skills) {
+  if (!skills || !skills.length) return "";
+  return `
+    <section class="skills">
+      <h2 class="section-title">Skills</h2>
+      ${skills
+        .map(
+          (entry) =>
+            `<p class="stack"><strong>${escapeHtml(entry.label)}:</strong> ${escapeHtml(entry.value)}</p>`
+        )
+        .join("")}
+    </section>
   `;
 }
 
@@ -66,8 +80,10 @@ function renderEducation(education) {
         .map(
           (edu) => `
         <div class="edu-item">
-          <span class="company">${escapeHtml(edu.institution)} — ${escapeHtml(edu.degree)}</span>
-          <span class="meta">${escapeHtml(edu.dates)} · ${escapeHtml(edu.location)}</span>
+          <span class="company">${escapeHtml(edu.institution)}</span>
+          <span class="role">${escapeHtml(edu.degree)}</span>
+          <span class="meta">${escapeHtml(edu.dates)}</span>
+          <span class="meta">${escapeHtml(edu.location)}</span>
         </div>
       `
         )
@@ -103,6 +119,8 @@ function render(data) {
       <h2 class="section-title">Summary</h2>
       <p>${escapeHtml(data.summary)}</p>
     </section>
+
+    ${renderSkills(data.skills)}
 
     ${data.sections.map(renderSection).join("")}
 
