@@ -99,10 +99,10 @@ function setUpPdfButton() {
   button.addEventListener("click", () => window.print());
 }
 
-function render(data) {
-  document.title = `${data.name} — ${data.title}`;
-
-  document.getElementById("app").innerHTML = `
+// Pure: build the resume markup from a data object. No DOM/fetch access, so it
+// is safe to require() from Node (the tailoring skill uses it to render HTML).
+function buildResumeHtml(data) {
+  return `
     <div class="top-bar"></div>
     <header class="hero">
       <h1>${escapeHtml(data.name)}</h1>
@@ -126,25 +126,46 @@ function render(data) {
 
     ${renderEducation(data.education)}
   `;
+}
 
+function render(data) {
+  document.title = `${data.name} — ${data.title}`;
+  document.getElementById("app").innerHTML = buildResumeHtml(data);
   setUpPdfButton();
 }
 
-fetch("resume.json")
-  .then((res) => {
-    if (!res.ok) throw new Error(`Failed to load resume.json (${res.status})`);
-    return res.json();
-  })
-  .then(render)
-  .catch((err) => {
-    document.getElementById("app").innerHTML = `
-      <div style="padding:2rem;font-family:sans-serif;color:#c0392b;">
-        <strong>Couldn't load resume.json.</strong><br/>
-        ${escapeHtml(err.message)}<br/><br/>
-        If you opened this file directly (file://), browsers block loading local JSON via fetch.
-        Serve the folder instead, e.g.:<br/>
-        <code>cd "${escapeHtml(location.pathname.replace(/\/[^/]*$/, ""))}" &amp;&amp; python3 -m http.server</code>
-        then open <code>http://localhost:8000</code>.
-      </div>
-    `;
-  });
+// Browser bootstrap: only runs in a page, so require() in Node is side-effect free.
+if (typeof document !== "undefined") {
+  fetch("resume.json")
+    .then((res) => {
+      if (!res.ok) throw new Error(`Failed to load resume.json (${res.status})`);
+      return res.json();
+    })
+    .then(render)
+    .catch((err) => {
+      document.getElementById("app").innerHTML = `
+        <div style="padding:2rem;font-family:sans-serif;color:#c0392b;">
+          <strong>Couldn't load resume.json.</strong><br/>
+          ${escapeHtml(err.message)}<br/><br/>
+          If you opened this file directly (file://), browsers block loading local JSON via fetch.
+          Serve the folder instead, e.g.:<br/>
+          <code>cd "${escapeHtml(location.pathname.replace(/\/[^/]*$/, ""))}" &amp;&amp; python3 -m http.server</code>
+          then open <code>http://localhost:8000</code>.
+        </div>
+      `;
+    });
+}
+
+// Node export for the tailoring skill's build step.
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    buildResumeHtml,
+    escapeHtml,
+    renderBody,
+    renderStack,
+    renderJob,
+    renderSkills,
+    renderSection,
+    renderEducation,
+  };
+}
