@@ -1,6 +1,6 @@
 {
   "name": "Vinay Shenoy",
-  "title": "Agentic coding/Full Stack/DevEx",
+  "title": "Staff EnAgentic coding/Full Stack/DevEx",
   "location": "Hyderabad, India (Timezone: UTC+5:30) - Open to relocate",
   "phone": "+91-9538122356",
   "email": "work@vinaysshenoy.com",
@@ -73,10 +73,6 @@
                 "Owned and built the monetization POC for the app including backend APIs (Using Firebase Cloud Functions) with Razorpay integration; this allowed the product team to have a high fidelity monetization enabled build ready to play around with while the backend team was setting up the full production payments system. When the production payments system was ready, the only thing needed to do was to swap the payments API endpoints in the app itself.",
                 "Owned planning and execution of several smaller features e2e on the mobile app side using SpecDrivenDevelopment agentic frameworks like SpecKit."
               ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Apart from actual engineering work, a lot of my responsibilities here also included engineering leadership work. This included working directly with the company leadership to do product scoping work, decide on tradeoffs to achieve business outcomes, etc."
             }
           ],
           "stack": [
@@ -109,10 +105,6 @@
                 "Built the backend application for the product in NodeJS/Typescript/PostgreSQL. Handled the design, development, and deployment of the backend application end to end as a single engineer. Apart from building the APIs themselves, this involved setting up Continuous Integration and deployment pipelines, setting up docker builds, working with AWS, etc.",
                 "Set up a Backend <> Hubspot CRM sync workflow using Quartz scheduler to enable faster business development. This removed the need for sales team to generate excel reports manually and have a single consolidated dashboard for customer relations."
               ]
-            },
-            {
-              "type": "paragraph",
-              "text": "Apart from actual engineering work, a lot of my responsibilities here also included engineering leadership work. This included working directly with the founders of the company to do product scoping work, decide on tradeoffs to achieve business outcomes, set up hiring pipelines and processes, etc."
             }
           ],
           "stack": [
