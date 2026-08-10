@@ -84,14 +84,22 @@ function setUpPdfButton(data) {
     button.disabled = true;
     button.textContent = "Generating…";
 
+    // html2canvas captures relative to the current scroll position, so if the
+    // page is scrolled down when generating, the content gets pushed down by
+    // that offset (blank leading pages). Pin the capture origin to the top.
+    window.scrollTo(0, 0);
+
     html2pdf()
       .set({
         margin: 0.5,
         filename: `${data.name} - Resume.pdf`,
         image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
+        html2canvas: { scale: 2, useCORS: true, scrollX: 0, scrollY: 0 },
         jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-        pagebreak: { mode: ["avoid-all", "css"] },
+        pagebreak: {
+          mode: ["css", "legacy"],
+          avoid: ["li", ".intro", ".stack", ".job-header"],
+        },
       })
       .from(document.getElementById("app"))
       .save()
