@@ -9,15 +9,17 @@ A single-person resume site: `resume.json` holds the content, `render.js` turns 
 ## Commands
 
 ```bash
-./serve [port]        # python3 http.server on :8000 by default; needed because render.js fetch()es resume.json
+./serve [port]                         # python3 http.server on :8000 by default; needed because render.js fetch()es resume.json
+node build.js <data.json> <out.html>   # standalone HTML with CSS inlined, using the site's own template
+./generate.sh <data.json> <out.pdf>    # build.js + headless Chrome --print-to-pdf (tagged PDF, macOS Chrome path hardcoded)
 ```
 
-Tailoring skill scripts (in `.claude/skills/tailor-resume/`, run from that directory):
+Rendering works on any data JSON, so `./generate.sh tailored/<slug>/resume.json out.pdf` is how a tailored variant becomes a PDF.
+
+Tailoring skill script (in `.claude/skills/tailor-resume/`, run from that directory):
 
 ```bash
 ./fetch-jd.sh <url>                    # fetch a job posting as text (browser UA + JSON-LD extraction); exit 2 = blocked
-node build.js <data.json> <out.html>   # standalone HTML with CSS inlined, using the site's own template
-./generate.sh <data.json> <out.pdf>    # build.js + headless Chrome --print-to-pdf (tagged PDF, macOS Chrome path hardcoded)
 ```
 
 ## Architecture
@@ -36,7 +38,7 @@ education: [{institution, degree, dates, location}]
 
 `sections` is generic — "Work Experience", "Personal Projects", etc. are all just sections of jobs. Adding a field to the JSON means adding a renderer branch in `render.js`.
 
-**`render.js` has a deliberate dual life.** `buildResumeHtml(data)` is pure (no DOM, no fetch) and is `module.exports`ed so Node can `require()` it; the browser bootstrap at the bottom is guarded by `typeof document !== "undefined"`. `build.js` in the skill requires the same file, so **the site preview and any generated PDF always share one template.** Don't add DOM or fetch access inside `buildResumeHtml` or its helpers — that breaks the Node path.
+**`render.js` has a deliberate dual life.** `buildResumeHtml(data)` is pure (no DOM, no fetch) and is `module.exports`ed so Node can `require()` it; the browser bootstrap at the bottom is guarded by `typeof document !== "undefined"`. `build.js` requires the same file, so **the site preview and any generated PDF always share one template.** Don't add DOM or fetch access inside `buildResumeHtml` or its helpers — that breaks the Node path.
 
 **Escaping is intentionally asymmetric.** Structural fields (name, company, role, dates, skill labels/values) go through `escapeHtml`. Content fields — paragraph `text` and list `items` — are injected raw so `<a>` links can live directly in `resume.json`. Keep it that way; the input is a hand-authored file, not user input.
 

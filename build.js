@@ -5,7 +5,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const REPO = path.resolve(__dirname, "..", "..", ".."); // .claude/skills/tailor-resume -> repo root
+const REPO = __dirname; // build.js lives at the repo root, alongside render.js
 const { buildResumeHtml } = require(path.join(REPO, "render.js"));
 
 const [, , dataPath, outPath] = process.argv;
