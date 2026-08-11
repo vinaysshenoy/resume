@@ -41,12 +41,7 @@
               ]
             }
           ],
-          "stack": [
-            {
-              "label": "Platforms and Technologies used",
-              "value": "Golang, Bash, HTML/CSS/JS, Coding agent CLIs, Skills"
-            }
-          ]
+          "stack": []
         }
       ]
     },
@@ -60,10 +55,6 @@
           "location": "Hyderabad, India",
           "body": [
             {
-              "type": "paragraph",
-              "text": "Staff engineer for the Equal AI assistant android application"
-            },
-            {
               "type": "list",
               "items": [
                 "Increased shipping velocity from 1-2 times a day to over 20 times a day by setting up automated build and deploy pipelines to firebase app distribution and the play store.",
@@ -75,16 +66,7 @@
               ]
             }
           ],
-          "stack": [
-            {
-              "label": "Platforms and Technologies used",
-              "value": "Kotlin, Jetpack Compose, Typescript, NodeJS, SpecKit, Claude, Skills, MCP servers"
-            },
-            {
-              "label": "Languages",
-              "value": "C#, Typescript, Kotlin/JVM"
-            }
-          ]
+          "stack": []
         },
         {
           "company": "Qweebi (Virtual Learning Machines Pte. Ltd.)",
@@ -94,7 +76,7 @@
           "body": [
             {
               "type": "paragraph",
-              "text": "Currently serving as Engineering Lead for the company building a virtual STEM makerspace for schools. As part of my role here, I built the backend application as well as building tools and pipelines to enable rapid prototyping and releases for the customer product. Here is a high-level glance at the most important things I have accomplished here:"
+              "text": "Currently serving as Engineering Lead for the company building a virtual STEM makerspace for schools. As part of my role here, I built the backend application as well as building tools and pipelines to enable rapid prototyping and releases for the customer product."
             },
             {
               "type": "list",
@@ -107,16 +89,7 @@
               ]
             }
           ],
-          "stack": [
-            {
-              "label": "Platforms and Technologies used",
-              "value": "Unity3D, NodeJS, PostgreSQL, AWS, Docker, Cloudflare, Testcontainers, GitHub Actions, Shell scripting"
-            },
-            {
-              "label": "Languages",
-              "value": "C#, Typescript, Kotlin/JVM"
-            }
-          ]
+          "stack": []
         },
         {
           "company": "Obvious (Obvious Ventures Pvt. Ltd.)",
@@ -126,7 +99,7 @@
           "body": [
             {
               "type": "paragraph",
-              "text": "Lead a small team of mobile engineers of various experience levels building a <a href=\"https://github.com/simpledotorg/simple-android\">mobile client</a> for <a href=\"https://www.simple.org/\">Simple.org</a>, an open platform for enabling public health officials to better monitor and control non communicable diseases like hypertension and diabetes. While I started out as a senior engineer on the team building features for the app, I gradually grew to a tech lead role and focused more on enabling the rest of the team to deliver better value. The things I am most proud of accomplishing in this role are:"
+              "text": "Lead a small team of mobile engineers of various experience levels building a <a href=\"https://github.com/simpledotorg/simple-android\">mobile client</a> for <a href=\"https://www.simple.org/\">Simple.org</a>, an open platform for enabling public health officials to better monitor and control non communicable diseases like hypertension and diabetes. While I started out as a senior engineer on the team building features for the app, I gradually grew to a tech lead role and focused more on enabling the rest of the team to deliver better value."
             },
             {
               "type": "list",
@@ -138,16 +111,7 @@
               ]
             }
           ],
-          "stack": [
-            {
-              "label": "Platforms and Technologies used",
-              "value": "Android, SQLite, GitHub Actions, Shell scripting"
-            },
-            {
-              "label": "Languages",
-              "value": "Kotlin/Android, Python"
-            }
-          ]
+          "stack": []
         },
         {
           "company": "HomeLane.com (Homevista Decor & Furnishings Pvt. Ltd.)",
@@ -157,7 +121,7 @@
           "body": [
             {
               "type": "paragraph",
-              "text": "Joined the company as part of an acquisition as a mobile engineer maintaining an Android VR application used for visualizing home interiors in design showrooms. Over the course of this role, I grew to a more generalist engineer, solving a variety of problems that helped the business scale. Here is a high-level list of accomplishments over the course of this employment:"
+              "text": "Joined the company as part of an acquisition as a mobile engineer maintaining an Android VR application used for visualizing home interiors in design showrooms. Over the course of this role, I grew to a more generalist engineer, solving a variety of problems that helped the business scale."
             },
             {
               "type": "list",
@@ -168,16 +132,7 @@
               ]
             }
           ],
-          "stack": [
-            {
-              "label": "Platforms and Technologies used",
-              "value": "WebSockets, Android, three.js, Dropwizard, ElectronJS"
-            },
-            {
-              "label": "Languages",
-              "value": "Kotlin/JVM, JavaScript"
-            }
-          ]
+          "stack": []
         },
         {
           "company": "doowup (virtuaLABS Software Solutions Pvt. Ltd.)",

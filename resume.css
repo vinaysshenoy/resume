@@ -228,8 +228,14 @@ ul.highlights a { color: var(--accent); }
   color: #ffffff;
 }
 
+/* Bounds the content box on every printed page, unlike body padding, which only
+   insets the start and end of the flow. */
+@page {
+  margin: 0.3in;
+}
+
 @media print {
-  body { padding: 0.5in; }
+  body { padding: 0.5in 0.5in 0; }
   a { color: inherit; text-decoration: none; }
   .toolbar { display: none !important; }
 }
