@@ -1,14 +1,12 @@
 ---
 name: tailor-resume
-description: Generate a job-tailored resume from the base resume.json. Use when the user provides a job description (a job posting URL, pasted job-description text, or a path to a saved job HTML file) and wants a resume tailored to it. Produces the tailored resume.json and renders it to a tagged, ATS-friendly PDF; the local resume site can preview the data.
+description: Generate a job-tailored resume.json from the base resume.json. Use when the user provides a job description (a job posting URL, pasted job-description text, or a path to a saved job HTML file) and wants a resume tailored to it. The skill's only output is the tailored resume.json.
 ---
 
 # Tailor Resume
 
-Generate a resume tailored to a specific job. The skill produces the tailored `resume.json`, then renders it to a
-**tagged, ATS-friendly PDF** with `generate.sh` (headless Chrome — the reliable way to keep the tags). The local
-resume site is a **preview surface**: **Load resume** to view any `resume.json`. To tweak, edit the JSON file
-itself, re-load to preview, and re-render.
+Generate a resume tailored to a specific job. **The skill's only output is the tailored `resume.json`** — it
+writes the file and stops.
 The base `resume.json` at the repo root is the **source of truth** and is never modified;
 each tailored resume is a separate derived artifact.
 
@@ -36,18 +34,9 @@ each tailored resume is a separate derived artifact.
      matches the JD. Do NOT reword, rephrase, merge, shorten, or otherwise edit any bullet or paragraph.
    - Keep `company`, `role`, `dates`, `location`, and `education` **verbatim** (factual anchors).
 5. **Write the tailored JSON** to `tailored/<job-slug>/resume.json` (create the folder; slug from company+role).
-6. **Render the tagged PDF** from the JSON:
-   ```
-   .claude/skills/tailor-resume/generate.sh tailored/<job-slug>/resume.json "tailored/<job-slug>/<Name> - <Role>.pdf"
-   ```
-   Uses the shared `buildResumeHtml` template + headless Chrome (`--print-to-pdf`), producing a **tagged**
-   (`StructTreeRoot`) PDF that matches the site's styling. This is the ATS-final artifact — prefer it over the
-   site's Download button, which goes through the browser print dialog and may drop tags on macOS.
-7. **Report a review card** (not a prose summary):
-   - **Output:** the tailored `resume.json` and the rendered PDF paths.
-   - **Preview:** the resume site (`./serve` → localhost) can **Load resume** the tailored JSON to eyeball it.
-     To adjust, edit `tailored/<job-slug>/resume.json` directly, re-**Load** to re-check, then re-run
-     `generate.sh` so the tagged PDF matches.
+   **This is the final step — the skill's only output is this file.**
+6. **Report a review card** (not a prose summary):
+   - **Output:** the tailored `tailored/<job-slug>/resume.json` path.
    - **What changed** from base and why — which JD keywords drove the summary/title rewrite and the bullet
      selection/reordering.
    - **Keyword coverage:** the JD's top terms now **truthfully present** in the resume, and the terms the JD
@@ -55,22 +44,13 @@ each tailored resume is a separate derived artifact.
      invent coverage to close a gap — a missing term is a signal, not a hole to paper over.
    - **To verify before sending:** any number, claim, or link worth a second look.
 
-## ATS formatting (the template already guarantees this)
+## ATS note (the one lever tailoring controls)
 
-The shared `buildResumeHtml` template + `generate.sh` (headless Chrome) produce output that already satisfies the
-format rules off-the-shelf parsers (Workday, Greenhouse, iCIMS, Taleo) care about. Don't undo them:
-- **Single column, linear top-to-bottom** reading order — no sidebars or multi-column layout to scramble.
-- **Real `<ul>/<li>` bullets** and skills as a text list — no tables, graphics, skill bars, icons, or emoji bullets.
-- **Selectable, tagged PDF** — `generate.sh` (headless Chrome `--print-to-pdf`) emits a `StructTreeRoot`
-  (H1/H2/list/link); selectable text = parseable text. The site's Download button uses the interactive browser
-  print dialog, which may drop tags on macOS (Quartz) — use `generate.sh` for the ATS-final PDF.
-- **Standard font + contact as body text** — name/phone/email render in the first body block, not a header/footer region parsers skip.
-
-The one ATS lever tailoring actually controls is **section-header wording** (from `sections[].title` in the JSON).
-Keep headers parser-standard — `Work Experience`, `Skills`, `Education`, `Projects` are all safe; never rename a
-section to something creative ("My Journey", "What I've Built"), which stops a parser from finding the section.
-
-After rendering, sanity-check: open the PDF and confirm a sentence highlights cleanly as text.
+The rendered resume is already ATS-safe (single column, real bullets, standard headers) — that's fixed by the
+template, not by this skill. The only ATS lever the tailored **data** controls is **section-header wording**
+(from `sections[].title` in the JSON). Keep headers parser-standard — `Work Experience`, `Skills`, `Education`,
+`Projects` are all safe; never rename a section to something creative ("My Journey", "What I've Built"), which
+stops a parser from finding the section.
 
 ## Guardrails (do not violate)
 - **Do not edit job/project content.** Bullet items and their intro paragraphs must stay **verbatim** from
@@ -86,6 +66,3 @@ After rendering, sanity-check: open the PDF and confirm a sentence highlights cl
 
 ## Notes
 - `fetch-jd.sh` handles job-posting URLs (browser-UA fetch + JSON-LD extraction).
-- `build.js` turns a data JSON into standalone print-ready HTML; `generate.sh` renders that HTML to a tagged PDF.
-- The resume site is a **preview surface**: **Load resume** renders any `resume.json`. Editing happens in the
-  JSON file itself (its changes are what `generate.sh` renders); the site does not write files.
