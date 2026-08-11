@@ -25,9 +25,11 @@ each tailored resume is a separate derived artifact.
 3. **Analyze the JD**: target role/title, seniority, core responsibilities, and the concrete
    skills/technologies/keywords it emphasizes.
 4. **Produce a tailored data object** with the same JSON schema as `resume.json`:
-   - **Summary**: this is the ONLY prose you may rewrite. Rewrite it to target the role using the JD's language,
-     grounded only in real experience.
-   - **Title** (headline): adjust to match the target role if appropriate.
+   - **Summary**: **select**, never write. The base carries a `summaries` array of hand-written variants
+     (`id`, `label`, `text`), each a different real framing of the candidate. Pick the one whose framing best
+     matches the JD and copy its `text` **verbatim** into the tailored `summary`. If none fits, use the base
+     `summary` unchanged. Emit only `summary` in the tailored file — never carry `summaries` across.
+   - **Title** (headline): adjust to match the target role if appropriate. This is the only free text you may write.
    - **Skills**: reorder/filter so the JD-relevant technologies surface first. Only include skills already present.
    - **Each role's / project's body (intro paragraphs AND bullet items)**: keep the text **verbatim**. You may
      only **select** (keep the relevant ones, drop the irrelevant ones) and **reorder** them to surface what
@@ -37,8 +39,8 @@ each tailored resume is a separate derived artifact.
    **This is the final step — the skill's only output is this file.**
 6. **Report a review card** (not a prose summary):
    - **Output:** the tailored `tailored/<job-slug>/resume.json` path.
-   - **What changed** from base and why — which JD keywords drove the summary/title rewrite and the bullet
-     selection/reordering.
+   - **What changed** from base and why — which summary variant was chosen and what in the JD selected it, plus
+     the JD keywords that drove the title, the skills ordering, and the bullet selection/reordering.
    - **Keyword coverage:** the JD's top terms now **truthfully present** in the resume, and the terms the JD
      wants that are **genuinely absent** from the base (so the user decides whether to stretch or skip). Never
      invent coverage to close a gap — a missing term is a signal, not a hole to paper over.
@@ -56,8 +58,10 @@ stops a parser from finding the section.
 - **Do not edit job/project content.** Bullet items and their intro paragraphs must stay **verbatim** from
   `resume.json`. Tailoring them means only **picking** the bullets/paragraphs that fit the role (keep or drop)
   and **reordering** them — never rewording, rephrasing, merging, shortening, or otherwise editing them.
-- **The summary is the only prose you may rewrite** (the title/headline may also be adjusted). Everything else is
-  select / reorder / filter of existing content only.
+- **Do not write summary prose.** The summary is chosen from the base's hand-written `summaries` variants and
+  copied verbatim — never authored, blended, or edited, however well a rewrite would fit the JD. If the right
+  framing does not exist yet, say so in the review card and use the default; a missing variant is the user's to
+  write. The title/headline is the single exception you may write; everything else is select / reorder / filter.
 - **Never fabricate.** Do not invent companies, roles, titles, dates, degrees, metrics, skills, technologies, or
   achievements that are not already in `resume.json`.
 - **Keep factual anchors verbatim**: company names, role titles, employment dates, locations, and education.

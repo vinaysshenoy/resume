@@ -6,6 +6,23 @@
   "email": "work@vinaysshenoy.com",
   "qualification": "Bachelor of Computer Science & Engineering",
   "summary": "Generalist software engineer with a keen interest in data modeling, system design, and developer experience. I have a broad range of experience over multiple platforms (consumer facing applications, backend apps, internal dev tools). My current skillset leans heavily towards backend and automation work, and absolutely love the craft of engineering, developer experience, and improving engineering feedback loops.",
+  "summaries": [
+    {
+      "id": "backend",
+      "label": "Backend and systems",
+      "text": "Generalist software engineer who enjoys the craft of data modeling and system design. I have owned backend applications end to end as the only engineer on them — schema, APIs, deployment, and everything around them — which taught me to care a great deal about what happens when a system has to change six months later. I focus on building systems that are simple to change, and a firm proponent of YAGNI."
+    },
+    {
+      "id": "agentic",
+      "label": "Agentic AI and harnesses",
+      "text": "Generalist software engineer currently spending most of my time on agentic systems and the scaffolding around them. What interests me is steering models with guardrails, so the work keeps turning into verification: deterministic checks the agent cannot skip, tests that are themselves tested, and enough observability to know what actually happened."
+    },
+    {
+      "id": "devex",
+      "label": "Developer experience and platform",
+      "text": "Generalist software engineer with a long-standing interest in developer experience and engineering feedback loops. A lot of what I have built has been the pipelines, test infrastructure, and internal tooling that let everyone else ship faster, whether that meant a preview build on every pull request or making a flaky test suite trustworthy again. I love the craft of engineering, short feedback loops, and iteration over perfection."
+    }
+  ],
   "skills": [
     {
       "label": "Languages",

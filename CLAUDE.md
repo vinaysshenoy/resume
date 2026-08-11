@@ -26,6 +26,7 @@ node build.js <data.json> <out.html>   # standalone HTML with CSS inlined, using
 
 ```
 name, title, location, phone, email, qualification, summary
+summaries: [{id, label, text}]      # hand-written framings; tailoring picks one, site ignores
 skills:    [{label, value}]
 sections:  [{title, jobs: [{company, role?, dates?, location?,
                             body: [{type:"paragraph", text} | {type:"list", items:[]}],
@@ -43,6 +44,8 @@ education: [{institution, degree, dates, location}]
 
 ## Tailored resumes
 
-`.claude/skills/tailor-resume/` generates job-targeted variants into `tailored/<job-slug>/resume.json` (gitignored). Read `SKILL.md` before doing tailoring work — it encodes hard guardrails: **the summary and title are the only prose that may be rewritten**; job/project bullets and paragraphs may only be selected and reordered, never reworded; nothing may be fabricated; the base `resume.json`, `render.js`, `resume.css`, and `index.html` are never modified by tailoring.
+`.claude/skills/tailor-resume/` generates job-targeted variants into `tailored/<job-slug>/resume.json` (gitignored). Read `SKILL.md` before doing tailoring work — it encodes hard guardrails: **the title is the only prose that may be written**; the summary is *chosen* from the base's `summaries` variants and copied verbatim; job/project bullets and paragraphs may only be selected and reordered, never reworded; nothing may be fabricated; the base `resume.json`, `render.js`, `resume.css`, and `index.html` are never modified by tailoring.
+
+The reason the summary is selected rather than generated: a per-job rewrite reads as keyword stuffing and drifts from the truth one plausible sentence at a time. Add a new hand-written variant instead of relaxing this.
 
 `Vinay Shenoy - Engineering Lead.md` is a legacy markdown copy of the resume, not wired into anything.
