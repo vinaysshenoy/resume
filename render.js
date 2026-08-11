@@ -93,35 +93,14 @@ function renderEducation(education) {
 }
 
 // Render a data object into the preview and update the page title.
-function applyData(data) {
+function loadData(data) {
   document.title = `${data.name} — ${data.title}`;
   document.getElementById("app").innerHTML = buildResumeHtml(data);
 }
 
-function setEditorText(text) {
-  const editor = document.getElementById("json-editor");
-  if (editor) editor.value = text;
-}
-
-function showEditorError(message) {
-  const el = document.getElementById("editor-error");
-  if (!el) return;
-  el.textContent = message || "";
-  el.style.display = message ? "block" : "none";
-}
-
-// Load a full data object: render it and mirror it into the editable JSON box.
-function loadData(data) {
-  applyData(data);
-  setEditorText(JSON.stringify(data, null, 2));
-  showEditorError("");
-}
-
-// Wire up the toolbar: load a resume file, edit its JSON, refresh the preview,
-// and download via the browser print dialog.
+// Wire up the toolbar: load a resume JSON file to preview, and print to PDF.
 function setUpToolbar() {
   const fileInput = document.getElementById("file-input");
-  const drawer = document.getElementById("editor-drawer");
 
   document
     .getElementById("load-button")
@@ -135,32 +114,15 @@ function setUpToolbar() {
       try {
         loadData(JSON.parse(reader.result));
       } catch (err) {
-        // Keep the raw text visible in the editor so it can be fixed by hand.
-        drawer.hidden = false;
-        setEditorText(reader.result);
-        showEditorError(`Couldn't parse ${file.name}: ${err.message}`);
+        window.alert(`Couldn't parse ${file.name}: ${err.message}`);
       }
     };
     reader.readAsText(file);
     fileInput.value = ""; // let the same file be re-selected later
   });
 
-  document.getElementById("edit-button").addEventListener("click", () => {
-    drawer.hidden = !drawer.hidden;
-  });
-
-  document.getElementById("refresh-button").addEventListener("click", () => {
-    try {
-      applyData(JSON.parse(document.getElementById("json-editor").value));
-      showEditorError("");
-    } catch (err) {
-      drawer.hidden = false;
-      showEditorError(`Invalid JSON: ${err.message}`);
-    }
-  });
-
-  // Print styles (@media print) hide the toolbar/editor and lay out the page for
-  // PDF; the user saves as PDF from the browser's print dialog.
+  // Print styles (@media print) hide the toolbar and lay out the page for PDF;
+  // the user saves as PDF from the browser's print dialog.
   document
     .getElementById("pdf-button")
     .addEventListener("click", () => window.print());
