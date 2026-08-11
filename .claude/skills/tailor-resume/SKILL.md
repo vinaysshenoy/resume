@@ -44,7 +44,6 @@ each tailored resume is a separate derived artifact.
    - **Keyword coverage:** the JD's top terms now **truthfully present** in the resume, and the terms the JD
      wants that are **genuinely absent** from the base (so the user decides whether to stretch or skip). Never
      invent coverage to close a gap — a missing term is a signal, not a hole to paper over.
-   - **To verify before sending:** any number, claim, or link worth a second look.
 
 ## ATS note (the one lever tailoring controls)
 
