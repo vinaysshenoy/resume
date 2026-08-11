@@ -39,7 +39,29 @@ each tailored resume is a separate derived artifact.
    ```
    This uses the shared `buildResumeHtml` template + headless Chrome, producing a tagged PDF that matches the
    live site's styling and page density.
-7. **Report** the output path and a short note on what was emphasized/added/dropped for this job.
+7. **Report a review card** (not a prose summary):
+   - **Output:** the PDF path.
+   - **What changed** from base and why — which JD keywords drove the summary/title rewrite and the bullet
+     selection/reordering.
+   - **Keyword coverage:** the JD's top terms now **truthfully present** in the resume, and the terms the JD
+     wants that are **genuinely absent** from the base (so the user decides whether to stretch or skip). Never
+     invent coverage to close a gap — a missing term is a signal, not a hole to paper over.
+   - **To verify before sending:** any number, claim, or link worth a second look.
+
+## ATS formatting (the template already guarantees this)
+
+The shared `buildResumeHtml` template + `generate.sh` produce output that already satisfies the format rules
+off-the-shelf parsers (Workday, Greenhouse, iCIMS, Taleo) care about. Don't undo them:
+- **Single column, linear top-to-bottom** reading order — no sidebars or multi-column layout to scramble.
+- **Real `<ul>/<li>` bullets** and skills as a text list — no tables, graphics, skill bars, icons, or emoji bullets.
+- **Selectable, tagged PDF** — headless Chrome emits a `StructTreeRoot` (H1/H2/list/link). Selectable text = parseable text.
+- **Standard font + contact as body text** — name/phone/email render in the first body block, not a header/footer region parsers skip.
+
+The one ATS lever tailoring actually controls is **section-header wording** (from `sections[].title` in the JSON).
+Keep headers parser-standard — `Work Experience`, `Skills`, `Education`, `Projects` are all safe; never rename a
+section to something creative ("My Journey", "What I've Built"), which stops a parser from finding the section.
+
+After rendering, sanity-check: open the PDF and confirm a sentence highlights cleanly as text.
 
 ## Guardrails (do not violate)
 - **Do not edit job/project content.** Bullet items and their intro paragraphs must stay **verbatim** from
