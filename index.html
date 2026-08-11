@@ -11,7 +11,20 @@
 <link rel="stylesheet" href="resume.css" />
 </head>
 <body>
-<button class="pdf-button" id="pdf-button">Download PDF</button>
+<div class="toolbar" id="toolbar">
+  <span class="toolbar-title">Resume preview</span>
+  <div class="toolbar-actions">
+    <input type="file" id="file-input" accept=".json,application/json" hidden />
+    <button type="button" id="load-button">Load resume</button>
+    <button type="button" id="edit-button">Edit JSON</button>
+    <button type="button" id="refresh-button">Refresh</button>
+    <button type="button" class="pdf-button" id="pdf-button">Download PDF</button>
+  </div>
+</div>
+<div class="editor-drawer" id="editor-drawer" hidden>
+  <textarea id="json-editor" spellcheck="false" aria-label="Resume JSON"></textarea>
+  <div class="editor-error" id="editor-error"></div>
+</div>
 <div class="resume" id="app"></div>
 <script src="render.js"></script>
 </body>

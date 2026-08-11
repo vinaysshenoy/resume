@@ -92,11 +92,78 @@ function renderEducation(education) {
   `;
 }
 
-function setUpPdfButton() {
-  const button = document.getElementById("pdf-button");
-  // Print styles (@media print) hide the button and lay the page out for PDF;
-  // the user saves as PDF from the browser's print dialog.
-  button.addEventListener("click", () => window.print());
+// Render a data object into the preview and update the page title.
+function applyData(data) {
+  document.title = `${data.name} — ${data.title}`;
+  document.getElementById("app").innerHTML = buildResumeHtml(data);
+}
+
+function setEditorText(text) {
+  const editor = document.getElementById("json-editor");
+  if (editor) editor.value = text;
+}
+
+function showEditorError(message) {
+  const el = document.getElementById("editor-error");
+  if (!el) return;
+  el.textContent = message || "";
+  el.style.display = message ? "block" : "none";
+}
+
+// Load a full data object: render it and mirror it into the editable JSON box.
+function loadData(data) {
+  applyData(data);
+  setEditorText(JSON.stringify(data, null, 2));
+  showEditorError("");
+}
+
+// Wire up the toolbar: load a resume file, edit its JSON, refresh the preview,
+// and download via the browser print dialog.
+function setUpToolbar() {
+  const fileInput = document.getElementById("file-input");
+  const drawer = document.getElementById("editor-drawer");
+
+  document
+    .getElementById("load-button")
+    .addEventListener("click", () => fileInput.click());
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files && fileInput.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        loadData(JSON.parse(reader.result));
+      } catch (err) {
+        // Keep the raw text visible in the editor so it can be fixed by hand.
+        drawer.hidden = false;
+        setEditorText(reader.result);
+        showEditorError(`Couldn't parse ${file.name}: ${err.message}`);
+      }
+    };
+    reader.readAsText(file);
+    fileInput.value = ""; // let the same file be re-selected later
+  });
+
+  document.getElementById("edit-button").addEventListener("click", () => {
+    drawer.hidden = !drawer.hidden;
+  });
+
+  document.getElementById("refresh-button").addEventListener("click", () => {
+    try {
+      applyData(JSON.parse(document.getElementById("json-editor").value));
+      showEditorError("");
+    } catch (err) {
+      drawer.hidden = false;
+      showEditorError(`Invalid JSON: ${err.message}`);
+    }
+  });
+
+  // Print styles (@media print) hide the toolbar/editor and lay out the page for
+  // PDF; the user saves as PDF from the browser's print dialog.
+  document
+    .getElementById("pdf-button")
+    .addEventListener("click", () => window.print());
 }
 
 // Pure: build the resume markup from a data object. No DOM/fetch access, so it
@@ -128,27 +195,23 @@ function buildResumeHtml(data) {
   `;
 }
 
-function render(data) {
-  document.title = `${data.name} — ${data.title}`;
-  document.getElementById("app").innerHTML = buildResumeHtml(data);
-  setUpPdfButton();
-}
-
-// Browser bootstrap: only runs in a page, so require() in Node is side-effect free.
+// Browser bootstrap: wire the toolbar, then load the default resume.json.
+// Only runs in a page, so require() in Node is side-effect free.
 if (typeof document !== "undefined") {
+  setUpToolbar();
   fetch("resume.json")
     .then((res) => {
       if (!res.ok) throw new Error(`Failed to load resume.json (${res.status})`);
       return res.json();
     })
-    .then(render)
+    .then(loadData)
     .catch((err) => {
       document.getElementById("app").innerHTML = `
         <div style="padding:2rem;font-family:sans-serif;color:#c0392b;">
-          <strong>Couldn't load resume.json.</strong><br/>
+          <strong>Couldn't auto-load resume.json.</strong><br/>
           ${escapeHtml(err.message)}<br/><br/>
-          If you opened this file directly (file://), browsers block loading local JSON via fetch.
-          Serve the folder instead, e.g.:<br/>
+          Use <strong>Load resume</strong> in the toolbar to pick a resume JSON file,
+          or serve the folder so fetch works, e.g.:<br/>
           <code>cd "${escapeHtml(location.pathname.replace(/\/[^/]*$/, ""))}" &amp;&amp; python3 -m http.server</code>
           then open <code>http://localhost:8000</code>.
         </div>
